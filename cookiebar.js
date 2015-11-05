@@ -13,7 +13,9 @@ var CookieBar = function() {
    */
   var CookieLanguages = [
     'en',
-    'de'
+    'de',
+    'fr',
+    'es',
   ];
 
   var cookieLawStates = [

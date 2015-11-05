@@ -30,6 +30,8 @@ Currently, the supported languages for Cookie Bar are:
 
 * en - English
 * de - German
+* fr - French
+* es - Spanish
 
 (Language files for it, fr, hu have been removed in this fork.)
 
