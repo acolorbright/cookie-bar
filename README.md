@@ -39,12 +39,12 @@ The user language is automatically detected by the browser, but you can force a 
 
 Include this HTML snippet in your HTML code, ideally right before the `</body>` tag:
 
-    <script src="http://rbma.github.io/cookie-bar/cookiebar.js" type="text/javascript"></script>
+    <script src="http://rbma.github.io/cookie-bar/cookiebar.min.js" type="text/javascript"></script>
 
 
 ###### If you need to configure it, you can do it like that:
 
-    <script src="http://rbma.github.io/cookie-bar/cookiebar.js?theme=foo&forceLang=en&…" type="text/javascript"></script>
+    <script src="http://rbma.github.io/cookie-bar/cookiebar.min.js?theme=foo&forceLang=en&…" type="text/javascript"></script>
 
 ##### Here is a short list of parameters you can use:
 
