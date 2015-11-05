@@ -1,5 +1,5 @@
-Permisson Bar
-=============
+RBMA Cookie Bar
+===============
 
 Cookie Bar is a free & easy solution to the EU cookie law.
 
