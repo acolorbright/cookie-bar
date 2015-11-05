@@ -3,6 +3,8 @@ Permisson Bar
 
 Cookie Bar is a free & easy solution to the EU cookie law.
 
+_This repository has an RBMA flavored and stripped down version of the [original cookie-bar project](http://cookie-bar.eu/)._
+
 ##### Why use Cookie Bar?
 
 There is a lot of mystery and fuss surrounding the new EU cookie legislation, but it's essentially really simple. Cookies are files used to track site activity and most websites use them. Site owners need to make the use of cookies very obvious to visitors.
@@ -13,13 +15,8 @@ Cookie bar makes it simple and clear to visitors that cookies are in use and tel
 
 Just place this somewhere in your website and forget it:
 
-    http://cdn.jsdelivr.net/cookie-bar/latest/cookiebar-latest.js
+    http://rbma.github.io/cookie-bar/cookiebar.min.js
 
-##### DEMO
-
-Everyone wants to see a demo before downloading something, isn't it? You can see a demo here:
-
-[http://cookie-bar.eu](http://cookie-bar.eu/)
 
 ##### How it works?
 
@@ -27,40 +24,35 @@ Permisson Bar is a drop-in and forget, pure vanilla javascript code, no jQuery o
 
 Once user clicks 'Allow Cookies' Cookie Bar will set a cookie for that domain with a name 'cookiebar' that will expire in 30 days. What this means is that the plugin will only show up once per domain (per month).
 
-If a user decides to click "Disallow Cookies", Cookies Bar will simply remove all cookies and localStorage data (and will show up again the first time a cookie is detected).
-
 ##### How many languages are supported?
 
 Currently, the supported languages for Cookie Bar are:
 
-* it - Italian
 * en - English
 * de - German
-* fr - French
-* hu - Hungarian
+
+(Language files for it, fr, hu have been removed in this fork.)
 
 The user language is automatically detected by the browser, but you can force a specific language by passing an optional parameter (see below).
 
 ##### How to Install?
 
-You have two options here:
-<ol>
-	<li>Use the hosted version (work in progress, you will see the link here ASAP)</li>
-	<li>Or,
-		<ol>
-			<li>Grab the Github repo and place it somewhere in a folder within your website. All of the files, including images and stylesheets, need to maintain it's relative structure - that is be in the same directory - for the plugin to work correctly.</li>
-			<li>Put the code you have seen in TL;DR section somewhere on all relevant pages of your website.</li>
-		</ol>
-	</li>
-</ol>
+Include this HTML snippet in your HTML code, ideally right before the `</body>` tag:
+
+    <script src="http://rbma.github.io/cookie-bar/cookiebar.js" type="text/javascript"></script>
+
 
 ###### If you need to configure it, you can do it like that:
 
-    http://cdn.jsdelivr.net/cookie-bar/latest/cookiebar-latest.js?forceYes=1&desiredParameters
+    <script src="http://rbma.github.io/cookie-bar/cookiebar.js?theme=foo&forceLang=en&…" type="text/javascript"></script>
 
 ##### Here is a short list of parameters you can use:
 
-    forceYes=1 <= hides deny consent button and text
-    forceLang=XX <= force a specific language
-    blocking=1 <= blocks all the page until the user clicks deny or consent cookies
-
+- `forceLang=XX` – force a specific language (if omitted we try to detect the browser's language setting)
+- `privacyPage=URL` – set a custom privacy page URL (defaults to http://www.redbull.com/pp/en_INT)
+- `top=1` – put the bar at the top of the viewport (default is at the bottom)
+- `theme=mytheme` – use an alternate theme (no alternatives included in this fork – add a `cookiebar-mytheme.css` file for this to work)
+- `bgColor=000000` – set the background color of the bar (hexadecimal without the `#`)
+- `textColor=FFFFFF` – set the text color
+- `linkColor=FF0000` – set the link text color
+- `remember=NN` – remember the user's decision for NN days (show the bar again after NN days)
