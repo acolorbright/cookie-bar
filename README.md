@@ -33,9 +33,10 @@ Currently, the supported languages for Cookie Bar are:
 * fr - French
 * es - Spanish
 
-(Language files for it, fr, hu have been removed in this fork.)
+(Language files for Italian and Hungarian have been removed in this fork.)
 
 The user language is automatically detected by the browser, but you can force a specific language by passing an optional parameter (see below).
+
 
 ##### How to Install?
 
@@ -57,4 +58,4 @@ Include this HTML snippet in your HTML code, ideally right before the `</body>` 
 - `bgColor=000000` – set the background color of the bar (hexadecimal without the `#`)
 - `textColor=FFFFFF` – set the text color
 - `linkColor=FF0000` – set the link text color
-- `remember=NN` – remember the user's decision for NN days (show the bar again after NN days)
+- `remember=NN` – remember the user's decision for NN days (show the bar again after NN days, defaults to 30)
