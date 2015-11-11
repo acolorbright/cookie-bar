@@ -9,6 +9,8 @@
     width: 100%;
     z-index: 9999;
     color: #FFF;
+    box-sizing: border-box;
+    max-width: 100%;
 }
 
 @media only screen and (max-device-width: 800px) {
