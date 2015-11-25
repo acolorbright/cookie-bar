@@ -18,37 +18,6 @@ var CookieBar = function() {
     'es',
   ];
 
-  var cookieLawStates = [
-    'BE',
-    'BG',
-    'CZ',
-    'DK',
-    'DE',
-    'EE',
-    'IE',
-    'EL',
-    'ES',
-    'FR',
-    'IT',
-    'CY',
-    'LV',
-    'LT',
-    'LU',
-    'HU',
-    'MT',
-    'NL',
-    'AT',
-    'PL',
-    'PT',
-    'RO',
-    'SI',
-    'SK',
-    'FI',
-    'SE',
-    'GB'
-  ];
-
-
   /**
    * Main function
    */
@@ -67,57 +36,15 @@ var CookieBar = function() {
       setCookie('cookiebar', 'CookieDisallowed');
     }
 
-    /**
-     * Load plugin only if needed:
-     * show if the "always" parameter is set
-     * do nothing if cookiebar cookie is set
-     * show only for european users
-     * @param null
-     * @return null
-     */
-    var checkEurope = new XMLHttpRequest();
-
-    checkEurope.open('GET', '//www.telize.com/geoip', true);
-    checkEurope.onreadystatechange = function() {
-      if (checkEurope.readyState === 4 && checkEurope.status === 200) {
-        clearTimeout(xmlHttpTimeout);
-        var country = JSON.parse(checkEurope.responseText).country_code;
-        if (cookieLawStates.indexOf(country) > -1) {
-          if (getURLParameter('always')) {
-            var accepted = getCookie();
-            if (accepted === undefined) {
-              startup();
-            }
-          } else {
-            if (document.cookie.length > 0 || window.localStorage.length > 0) {
-              var accepted = getCookie();
-              if (accepted === undefined) {
-                startup();
-              }
-            }
-          }
-        }
-      }
-    }
-
-    checkEurope.send();
-
     /*
-    * Using an external service for geoip localization could be a long task
-    * If it takes more than 1 second, start normally
+    * Show cookie bar if it wasn’t accepted before
     * @param null
     * @return null
     */
-    var xmlHttpTimeout = setTimeout(ajaxTimeout, 1500);
-    function ajaxTimeout() {
-      checkEurope.abort();
-      console.log('cookieBAR - Timeout for ip geolocalion');
-
-      if (document.cookie.length > 0 || window.localStorage.length > 0) {
-        var accepted = getCookie();
-        if (accepted === undefined) {
-          startup();
-        }
+    if (document.cookie.length > 0 || window.localStorage.length > 0) {
+      var accepted = getCookie();
+      if (accepted === undefined) {
+        startup();
       }
     }
 
@@ -361,8 +288,8 @@ var CookieBar = function() {
 
   return {
     setup: setupCookieBar
-  }
-}
+  };
+};
 
 // Load the script only if there is at least a cookie or a localStorage item
 document.addEventListener('DOMContentLoaded', function() {
